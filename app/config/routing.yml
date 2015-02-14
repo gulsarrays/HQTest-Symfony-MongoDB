@@ -1,0 +1,8 @@
+hq_test_payment_lib:
+    resource: "@HQTestPaymentLibBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

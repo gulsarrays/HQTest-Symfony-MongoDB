@@ -1,0 +1,90 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace HQTest\PaymentLibBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
+/**
+ * Description of orders
+ * @MongoDB\Document
+ * @author zyko
+ */
+class orders {
+
+    /**
+     * * @MongoDB\Id
+     */
+    protected $orderID;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $customerName;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $cardHolderName;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $cardNumber;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $cardType;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $cardExpiry;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $cardCvv;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $paymentCurrency;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $paymentGateway;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $transactionId;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $orderStatus;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $orderAmount;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $orderCreatedTime;
+
+    /**
+     * @MongoDB\string
+     */
+    protected $transactionResponse;
+
+}

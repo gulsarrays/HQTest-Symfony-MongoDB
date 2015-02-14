@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} HQ Test  - Order Listing Page {% endblock %}
+
+{% block stylesheets %}   
+    <link rel="stylesheet" href="{{ asset('bundles/hqtestpaymentlib/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hqtestpaymentlib/css/bootstrap-theme.min.css') }}" />
+
+    <style type="text/css">
+        .bs-container{
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="bs-container">
+        <div class="table-responsive"> 
+            <div> <h1>Order List </h1></div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Transaction ID</th>
+                        <th>Date</th>
+                        <th>Currency</th>
+                        <th>Amount</th>
+                        <th>Method</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    {% for order in orders %}                                               
+                        <tr>
+                            <td><a href="{{  path('hqtest_paymentlib_payment_orders', {'ID': order.orderID}) }}">{{ order.orderID }}</a></td>
+                            <td>{{ order.transactionId }}</td>
+                            <td>{{ order.orderCreatedTime|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ order.paymentCurrency }}</td>
+                            <td>{{ order.orderAmount }}</td>
+                            <td>{{ order.paymentGateway }}</td>
+                            <td>{{ order.orderStatus }}</td>				
+                        </tr>                    
+                    {% endfor %}  
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-xs-offset-5">
+            <a href = "{{ path('hqtest_paymentlib_payment_index') }}"><button type="button" class="btn btn-default btn-sm btn-primary"> Try Again !! </button></a>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/hqtestpaymentlib/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/hqtestpaymentlib/js/bootstrap.min.js') }}"></script>
+{% endblock %}

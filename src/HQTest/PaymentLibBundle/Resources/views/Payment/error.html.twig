@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} HQ Test  - Error {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/hqtestpaymentlib/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/hqtestpaymentlib/css/bootstrap-theme.min.css') }}" />
+    <style type="text/css">            
+
+        @media screen and (max-width: 400px) {
+            #error_block{
+                position: static;
+                width: auto;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+        <br><br><br>
+
+        <div class="col-sm-1"></div>			
+        <div class="panel panel-default col-xs-8" id="error_block">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Oppps.... An Error Had Occured !!!!!</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>{{ payment_response.error.title }}</strong>  
+                    </div>
+                </div>                               
+                {{ dump(payment_response.error.message) }}
+                
+            </div>
+        
+                
+        <div>
+            <div class="col-xs-offset-5">
+                <a href = "{{ path('hqtest_paymentlib_payment_index') }}"><button type="button" class="btn btn-default btn-sm btn-primary"> Try Again !! </button></a>
+            </div>
+        </div>
+        </div>
+                <div class="col-xs-offset-5" > &nbsp;</div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/hqtestpaymentlib/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('bundles/hqtestpaymentlib/js/bootstrap.min.js') }}"></script>
+{% endblock %}
+
