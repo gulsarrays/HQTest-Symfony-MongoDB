@@ -73,9 +73,13 @@ Similarly as during any other code review in our team, we'll be checking the fol
 
       for that navigate to project folder by command promt and run the following commands as give in symfony website
       -----------------------------------------------------------------------------------------------------------------
+
       HTTPDUSER=`ps aux | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+
       sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
+
       sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX app/cache app/logs
+
       -----------------------------------------------------------------------------------------------------------------
       
   + To run the phpunit tests
